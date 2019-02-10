@@ -3,7 +3,21 @@ Feature: sample karate test script to test xml
   Background:
     * url 'https://www.softhinkers.com'
 
-  Scenario: get state value
+  Scenario: get state value : fails
+
+    Given path '/dinesense-web/crud'
+    When method get
+    Then status 200
+    And  match  response.root.location.state contains '#null'
+
+  Scenario: get state value :  pass
+
+    Given path '/dinesense-web/crud'
+    When method get
+    Then status 200
+    And  match  response.root.location.state contains '#notnull'
+
+  Scenario: get state value : design test sample
 
     Given path '/dinesense-web/crud'
     When method get
