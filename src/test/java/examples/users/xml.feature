@@ -10,6 +10,7 @@ Feature: sample karate test script to test xml
     Then status 200
     And  match  response.root.location.state contains '#null'
 
+  @name=rightResponse
   Scenario: get state value :  pass
 
     Given path '/dinesense-web/crud'
@@ -41,4 +42,3 @@ Feature: sample karate test script to test xml
     * def roots = response
     * def state = get roots //location/state
     * match state contains '#notnull'
-
